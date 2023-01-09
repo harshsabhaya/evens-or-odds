@@ -46,8 +46,14 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { gameStarted, instructionExpanded, fetchState, message } = state
-  return { gameStarted, instructionExpanded, fetchState, message}
+
+  // access nested object
+  const {
+    settings: { gameStarted },
+    deck: { fetchState, message }
+  } = state
+  
+  return { gameStarted, fetchState, message}
 }
 
 const mapDispatchToProps = (dispatch) => {
