@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchNewDeck } from '../actions/deck';
 import { endGame, startGame } from '../actions/settings';
 import Instructions from './instructions';
 
 class App extends Component {
-  
+  startGame = () => {
+    this.props.startGame()
+    this.props.fetchNewDeck()
+  }
+
   render() {
     console.log("this.props", this.props)
     return (
@@ -20,7 +25,7 @@ class App extends Component {
           <div>
             <h3>A new game awaits</h3>
             <br />
-            <button onClick={this.props.startGame}>Start game</button>
+            <button onClick={this.startGame}>Start game</button>
             <hr />
             <Instructions />
           </div>
@@ -40,7 +45,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     startGame: () => dispatch(startGame()),
-    endGame: () => dispatch(endGame())
+    endGame: () => dispatch(endGame()),
+    fetchNewDeck: () => dispatch(fetchNewDeck())
   }
 }
 
