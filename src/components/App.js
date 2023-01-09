@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNewDeck } from '../actions/deck';
 import { endGame, startGame } from '../actions/settings';
 import fetchStates from '../reducers/fetchStates';
+import DrawCard from './DrawCard';
 import Instructions from './instructions';
 
 class App extends Component {
@@ -29,6 +30,8 @@ class App extends Component {
           <div>
             <h3>The game is on!</h3>
             <br />
+            <DrawCard />
+            <hr />
             <button onClick={this.props.endGame}>Cancel Game</button>
           </div>
         ) : (
@@ -52,7 +55,7 @@ const mapStateToProps = (state) => {
     settings: { gameStarted },
     deck: { fetchState, message }
   } = state
-  
+
   return { gameStarted, fetchState, message}
 }
 

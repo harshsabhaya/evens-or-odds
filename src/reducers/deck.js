@@ -1,17 +1,19 @@
-import { DECK } from '../actions/types'
+import { DECK, DECK_DRAW } from '../actions/types'
 import fetchStates from './fetchStates'
 
 const DEFAULT_DECK = {
     deck_id: "", 
     remaining: 0,
     fetchState: "",
-    message: "" 
+    message: "",
+    cards: []
 }
 
 const deckReducer = (state = DEFAULT_DECK, action) => {
+    let deck_id, remaining, cards;
     switch (action.type) {
         case DECK.FETCH_SUCCESS:
-            const {remaining, deck_id } = action
+            ({ remaining, deck_id } = action)
             return {
                 ...state, remaining, deck_id, fetchState: fetchStates.success
             }
@@ -20,6 +22,11 @@ const deckReducer = (state = DEFAULT_DECK, action) => {
             return {
                 ...state, message: action.message, fetchState: fetchStates.error
             }
+
+        case DECK_DRAW.FETCH_SUCCESS:
+            ({cards, remaining} = action)
+            return { ...state, cards, remaining}
+
         default:
             return state
     }

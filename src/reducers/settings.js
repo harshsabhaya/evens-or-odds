@@ -1,5 +1,4 @@
 import { SET_GAME_STARTED, SET_INSTRUCTION_EXPANDED} from '../actions/types'
-import fetchStates from './fetchStates'
 
 const DEFAULT_SETTING = {
     gameStarted: false,
@@ -25,4 +24,4 @@ const settingsReducer = (state = DEFAULT_SETTING, action) => {
     }
 }
 
-export default settingsReducer
+export default settingsReducer;
