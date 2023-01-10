@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("this.props", this.props)
 
     if (this.props.fetchState === fetchStates.error) {
       return (

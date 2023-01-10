@@ -4,7 +4,6 @@ import { expandInstructions, collapseInstructions} from "../actions/settings"
 
 const Instructions = (props) => {
     const { instructionsExpanded, expandInstructions, collapseInstructions} = props
-    console.log("instructionsExpanded", instructionsExpanded)
     if(instructionsExpanded) {
         return(
             <div>

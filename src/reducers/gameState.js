@@ -1,6 +1,6 @@
 import { DECK_DRAW, SET_GAME_STARTED, SET_GUESS } from "../actions/types";
 
-const EVEN = ['2', '4', '6', '8', '0']
+const EVEN = ['2', '4', '6', '8', '10']
 const ODD = ['ACE', '3', '5', '7', '9']
 
 const DEFAULT_GAME_STATE = {
